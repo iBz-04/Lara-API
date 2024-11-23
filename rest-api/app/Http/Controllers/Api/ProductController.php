@@ -90,7 +90,12 @@ class ProductController extends Controller
     ], 200);
     }
 
-    public function destroy () {
+    public function destroy (Product $product)
+    {
+        $product->delete();
+        return response() -> json([
+            'message' => 'Product Deleted Successfully'
+        ], 200);
         
     }
 }
